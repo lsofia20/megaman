@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     Animator myAnim;
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] GameObject FlyingEnemy;
     bool isGrounded;
 
     // Start is called before the first frame update
@@ -16,8 +18,6 @@ public class Player : MonoBehaviour
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-
-        StartCoroutine(Showtime());
     }
 
     // Update is called once per frame
@@ -29,15 +29,16 @@ public class Player : MonoBehaviour
         isGrounded = ray.collider != null;
         Jump();
         Fire();
+        if(transform.position == FlyingEnemy.transform.position)
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
-    IEnumerator Showtime()
+    IEnumerator GameOver()
     {
-        while (true) //loop infinito
-        {
-            yield return new WaitForSeconds(1); //espere x segundos para ir a la siguente linea
-            Debug.Log(Time.time);
-        }
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("SampleScene");
     }
 
     void Fire()
