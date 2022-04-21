@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Enemigoes : MonoBehaviour
 {
+    Animator myAnim;
     [SerializeField] private float vida;
     [SerializeField] private GameObject efectoMuerte;
-    
+
     public void TomarDaño(float daño)
     {
         vida -= daño;
@@ -18,7 +19,8 @@ public class Enemigoes : MonoBehaviour
 
     private void Muerte()
     {
-        Instantiate(efectoMuerte, transform.position, Quaternion.identity);
+        //Instantiate(efectoMuerte, transform.position, Quaternion.identity);
+        myAnim.SetBool("isDying", true);
         Destroy(gameObject);
     }
 }
