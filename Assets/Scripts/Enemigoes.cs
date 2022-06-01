@@ -6,12 +6,13 @@ public class Enemigoes : MonoBehaviour
 {
     Animator myAnim;
     float nextFire = 0;
-    float animationLayerCooldown = 0;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject Camera;
     [SerializeField] float bulletSpeed;
     [SerializeField] float fireRate;
     [SerializeField] AudioClip clip;
     float vida = 7;
+    float animationLayerCooldown = 0;
 
     void Start()
     {
@@ -66,5 +67,7 @@ public class Enemigoes : MonoBehaviour
     void Destroy()
     {
         Destroy(gameObject);
+        GameObject camera = Camera;
+        camera.GetComponent<CMcam>().calcularEnemigos();
     }
 }

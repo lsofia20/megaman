@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 9132059478371955366}
   - component: {fileID: 6204716383832709506}
   - component: {fileID: 8377032717446607539}
+  - component: {fileID: 789855123679974118}
   m_Layer: 0
   m_Name: Texto flotante
-  m_TagString: Untagged
+  m_TagString: textoEnem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,3 +98,16 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &789855123679974118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953498786233733397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43db6733bbdccd0469092bf3b1bf955d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CMcam: {fileID: 0}

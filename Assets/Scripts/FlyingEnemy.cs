@@ -7,6 +7,7 @@ public class FlyingEnemy : MonoBehaviour
 {
     Animator myAnim;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject Camera;
     [SerializeField] AudioClip clip;
     AIPath myPath;
     float vida = 7;
@@ -61,5 +62,7 @@ public class FlyingEnemy : MonoBehaviour
     void Destroy()
     {
         Destroy(gameObject);
+        GameObject camera = Camera;
+        camera.GetComponent<CMcam>().calcularEnemigos();
     }
 }

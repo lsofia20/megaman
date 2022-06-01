@@ -29,7 +29,6 @@ public class UIController : MonoBehaviour
 
     void LoadScene()
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position);
         UIDocument r = GetComponent<UIDocument>();
         r.enabled = false;
 
