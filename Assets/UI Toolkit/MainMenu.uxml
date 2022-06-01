@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/mi-estilo.uss?fileID=7433441132597879392&amp;guid=0a60afd8e16150b4db88afc2c1ceed87&amp;type=3#mi-estilo" />
+    <ui:VisualElement name="panel" style="background-color: rgba(0, 0, 0, 0.74); height: 100%; width: 100%; align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/assets_platform(2)/megamanx.png?fileID=2800000&amp;guid=8266975219a100b44bdd39966223f751&amp;type=3#megamanx&apos;);">
+        <ui:VisualElement name="menu" style="height: 400px; background-color: rgba(255, 255, 255, 0.73); border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; width: 596px; justify-content: center; align-items: center; flex-direction: column; -unity-text-align: upper-center;">
+            <ui:Label text="MEGAMAN" display-tooltip-when-elided="true" style="height: 60px; -unity-font-style: bold; color: rgba(12, 0, 159, 255); font-size: 50px; margin-bottom: 20px; -unity-font: none;" />
+            <ui:Button text="Iniciar Juego" display-tooltip-when-elided="true" name="start-btn" class="my-btn" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; margin-top: 20px; transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s; height: 67px;" />
+            <ui:Label text="Integrantes: Sofia Nuñez Mariana Chacon" display-tooltip-when-elided="true" style="color: rgba(56, 56, 56, 255); font-size: 30px; width: 234px; height: 135px; white-space: normal; margin-top: 20px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

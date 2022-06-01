@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 482bd10a0c146e946a7d14ffa4afa716, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5d86654cbe442a541844a77a167dbfd1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isDying
+    m_ConditionEvent: death
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5508264533390842708}
@@ -112,8 +112,8 @@ AnimatorController:
   m_Name: Enemigo estatico
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isDying
-    m_Type: 4
+  - m_Name: death
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

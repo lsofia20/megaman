@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idle_staticEnemy
+  m_Name: Bullet_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -640619650, guid: 85372f27ae364a849955e7c74d8955dd, type: 3}
+      value: {fileID: -897541236, guid: 2e8ccd6b7430f6f4597f976d5743e867, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -640619650, guid: 85372f27ae364a849955e7c74d8955dd, type: 3}
+    - {fileID: -897541236, guid: 2e8ccd6b7430f6f4597f976d5743e867, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

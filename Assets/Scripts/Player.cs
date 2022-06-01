@@ -8,10 +8,19 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D myBody;
     Animator myAnim;
+    bool isGrounded;
+    float nextFire = 0;
+    float animationLayerCooldown = 0;
+
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
     [SerializeField] GameObject FlyingEnemy;
-    bool isGrounded;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float fireRate;
+    [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip clip2;
+    [SerializeField] AudioClip clip3;
 
     // Start is called before the first frame update
     void Start()
@@ -29,34 +38,59 @@ public class Player : MonoBehaviour
         isGrounded = ray.collider != null;
         Jump();
         Fire();
-        if(transform.position == FlyingEnemy.transform.position)
+        /*if(transform.position == FlyingEnemy.transform.position)
         {
+            myAnim.SetBool("isDying", true);
             StartCoroutine(GameOver());
-        }
+        }*/
     }
 
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1);
+        AudioSource.PlayClipAtPoint(clip, transform.position);
+        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         SceneManager.LoadScene("SampleScene");
+        
     }
 
     void Fire()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && Time.time > nextFire)
+        {
+            AudioSource.PlayClipAtPoint(clip2, transform.position);
+            GameObject myBullet = Instantiate(bullet, transform.position, transform.rotation);
+            myBullet.GetComponent<Bala>().Shoot(transform.localScale.x, bulletSpeed);
+
+            myAnim.SetLayerWeight(1,1);
+            nextFire = Time.time + fireRate;
+            animationLayerCooldown = nextFire + 0.2f;
+        }
+        else if(Time.time > animationLayerCooldown)
+        {
+            myAnim.SetLayerWeight(1,0);
+        }
+        /*if (Input.GetKey(KeyCode.Z))
         {
             myAnim.SetLayerWeight(1, 1);
         }
         else
         {
             myAnim.SetLayerWeight(1, 0);
-        }
+        }*/
     }
 
-    /*void FinishRun()
+    public void Death()
     {
-        Debug.Log("Termino de correr");
-    }*/
+        myAnim.SetBool("isDying", true);
+        StartCoroutine(GameOver());
+    }
+
+    void FinishingRun()
+    {
+        Debug.Log("Termina animación de correr");
+    }
 
    void Jump()
     {
@@ -65,6 +99,7 @@ public class Player : MonoBehaviour
             //myAnim.SetBool("IsJumping", false);
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                AudioSource.PlayClipAtPoint(clip3, transform.position);
                 myBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 myAnim.SetBool("IsJumping", true);
             }
@@ -103,4 +138,12 @@ public class Player : MonoBehaviour
         myBody.velocity = new Vector2(dirH * speed, myBody.velocity.y);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if(collision.gameObject.name == "Flying enemy")
+        {
+            Death();
+        }
+    }
 }
